@@ -9,7 +9,7 @@ a multitude of security tools and solve problems regarding digital security.
 
 ## Installation
 
-To install the dependencies that the coursework uses use the command:
+To install the dependencies that the coursework uses, use the command:
 
 ```bash
 pip install -r requirements.txt
@@ -21,13 +21,17 @@ To run the python files that I submitted with this project use the commands:
 
 ```bash
 python ex1.py
-
+```
+```bash
 python ex2.py
-
+```
+```bash
 python ex2_test_case_1.py
-
+```
+```bash
 python ex2_test_case_2.py
-
+```
+```bash
 python ex3.py
 ```
 
