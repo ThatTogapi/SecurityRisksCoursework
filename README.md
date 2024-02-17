@@ -12,7 +12,8 @@ a multitude of security tools and solve problems regarding digital security.
 To install the dependencies that the coursework uses use the command:
 
 ```bash
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 ## Running
 
@@ -27,6 +28,7 @@ python ex2_test_case_1.py
 
 python ex2_test_case_2.py
 
-python ex3.py```
+python ex3.py
+```
 
 
