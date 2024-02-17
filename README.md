@@ -18,19 +18,23 @@ pip install -r requirements.txt
 ## Running
 
 To run the python files that I submitted with this project use the commands:
-
+#### ex1.py
 ```bash
 python ex1.py
 ```
+#### ex2.py
 ```bash
 python ex2.py
 ```
+#### ex2_test_case_1.py
 ```bash
 python ex2_test_case_1.py
 ```
+#### ex2_test_case_2.py
 ```bash
 python ex2_test_case_2.py
 ```
+#### ex3.py
 ```bash
 python ex3.py
 ```
