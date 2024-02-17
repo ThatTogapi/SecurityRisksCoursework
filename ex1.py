@@ -51,10 +51,10 @@ def encrypt(plain_text, key_matrix, modulus=26):
 
 if __name__ == "__main__":
     while True:
-        plain_text = input("Enter the plaintext for encryption (type 'exit' to quit): ")
+        plain_text = input("Enter plaintext IN CAPITAL LETTERS only (type 'exit' to quit): ")
         if plain_text.lower() == 'exit':
             break
-        key_matrix = np.array([[3, 3], [2, 3]])
+        key_matrix = np.array([[1, 3], [2, 3]])
         cipher_text, num_X = encrypt(plain_text, key_matrix)
         decrypted_text = decrypt(cipher_text, key_matrix, num_X)
         print("Ciphertext:", cipher_text)
