@@ -9,7 +9,8 @@ a multitude of security tools and solve problems regarding digital security.
 
 ## Installation
 
-To install the dependencies that the coursework uses, use the command:
+To install the dependencies that the coursework uses, navigate to the directory that the 
+scripts are installed into and use the command:
 
 ```bash
 pip install -r requirements.txt
