@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def decrypt(cipher_text, key_matrix, num_X, modulus=26):
     plain_text = ""
     for i in range(0, len(cipher_text), len(key_matrix)):
@@ -8,6 +9,8 @@ def decrypt(cipher_text, key_matrix, num_X, modulus=26):
         for char in cipher_text[i:i + len(key_matrix)]:
             if char.isupper():
                 block += char
+            else:
+                block += char  # Add non-uppercase character directly to the block
 
         if len(block) < len(key_matrix):
             continue
@@ -24,10 +27,15 @@ def decrypt(cipher_text, key_matrix, num_X, modulus=26):
         decrypted_vector = np.round(decrypted_vector).astype(int)
 
         for index, char in enumerate(block):
-            plain_text += chr(decrypted_vector[index] + ord('A'))
+            if char.isupper():
+                plain_text += chr(decrypted_vector[index] + ord('A'))
+            else:
+                plain_text += char  # Add non-uppercase character directly to the plaintext
 
-    plain_text = plain_text[:len(plain_text)-num_X]
+    plain_text = plain_text[:len(plain_text) - num_X]
     return plain_text
+
+
 
 def encrypt(plain_text, key_matrix, modulus=26):
     num_X = 0
@@ -39,15 +47,26 @@ def encrypt(plain_text, key_matrix, modulus=26):
     cipher_text = ""
 
     for i in range(0, len(plain_text), len(key_matrix)):
-
         block = plain_text[i:i + len(key_matrix)]
-        block_vector = np.array([ord(char) - ord('A') for char in block])
-        encrypted_vector = np.dot(key_matrix, block_vector) % modulus
 
-        for index, char in enumerate(block):
-            cipher_text += chr(int(encrypted_vector[index]) + ord('A'))
-            
+        # Check if the block contains at least one uppercase character
+        has_uppercase = any(char.isupper() for char in block)
+
+        if has_uppercase:
+            block_cipher = ""
+            block_vector = np.array([ord(char) - ord('A') for char in block])
+            encrypted_vector = np.dot(key_matrix, block_vector) % modulus
+            for index, char in enumerate(block):
+                if char.isupper():
+                    block_cipher += chr(int(encrypted_vector[index]) + ord('A'))
+                else:
+                    block_cipher += char  # Add non-uppercase character directly
+            cipher_text += block_cipher
+        else:
+            cipher_text += block  # Add non-uppercase block directly to the ciphertext
+
     return cipher_text, num_X
+
 
 if __name__ == "__main__":
     while True:
